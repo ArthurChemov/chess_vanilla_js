@@ -1,8 +1,8 @@
 {
-  "name": "react-webpack",
+  "name": "chess_pure_js",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/js/script.js",
   "scripts": {
     "serve": "webpack serve --mode development",
     "build": "webpack --watch --mode production"
