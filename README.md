@@ -1,3 +1,3 @@
 # Chess Vanilla JS
-<li>Game with computer</li>
-<li>2 players</li>
+<li>Chess game for 2 players</li>
+<li>Chess game with computer</li>
