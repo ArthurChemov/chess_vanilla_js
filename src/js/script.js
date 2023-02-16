@@ -1,4 +1,4 @@
-import '../styles/style.css';
+import '../styles/style.scss';
 // ---------------------------------------------------
 // Constants
 // ---------------------------------------------------
@@ -6,8 +6,15 @@ const BOARD_DOM = document.getElementById('app');
 
 const ROW = 8;
 const COL = 8;
-let SQUARE_SIZE = 50;
-let BOARD_BORDER = 10;
+let SQUARE_SIZE;
+let BOARD_BORDER;
+if (window.matchMedia('(min-width: 500px)').matches) {
+  SQUARE_SIZE = 50;
+  BOARD_BORDER = 10;
+} else {
+  SQUARE_SIZE = 37.5;
+  BOARD_BORDER = 7.5;
+}
 
 const BLACK = 'b';
 const WHITE = 'w';
@@ -243,7 +250,7 @@ function checkBishopRules(initial, x, y) {
   if ( (xDiff === yDiff) && !collisionValue ||
        (collisionValue && collisionValue.color !== initial.color) ) {
 
-    // TODO: bishop can not jump pieces
+    // bishop can not jump pieces
     var spacesLength = xDiff - 1;
     // check if the movement is positive or negative
     var xOperator = getCoordOperator(initial.x, x);
@@ -313,7 +320,11 @@ function drag(event) {
         var coordY = y - board.y;
 
         // limits of the board
-        if (coordX < 0 || coordX > 375 || coordY < 0 || coordY > 375 ) return
+        if (window.matchMedia('(min-width: 500px)').matches) {
+          if (coordX < 0 || coordX > 375 || coordY < 0 || coordY > 375 ) return;
+        } else {
+          if (coordX < 0 || coordX > 281.25 || coordY < 0 || coordY > 281.25 ) return;
+        }
 
         var position = 'left:' + x + 'px;top:' + y + 'px; z-index: 1;';
         element.setAttribute('style', position);
@@ -425,5 +436,7 @@ var game = {
 }
 
 game.init();
+
+
 
 
