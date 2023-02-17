@@ -50,7 +50,7 @@ module.exports = {
       template: 'src/index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
+      filename: '[name].[contenthash].scss',
     }),
   ],
   resolve: {

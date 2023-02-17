@@ -18,4 +18,13 @@ module.exports = {
       },
     },
   },
+  rules: {
+    'no-plusplus': 'off',
+    'no-new': 'off',
+    'no-mixed-operators': 'off',
+    'no-param-reassign': 'off',
+    'no-return-assign': 'off',
+    'no-use-before-define': 'off',
+    'prefer-arrow-callback': 'off',
+  },
 };
